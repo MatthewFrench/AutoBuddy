@@ -45,7 +45,7 @@ namespace AutoBuddy.MainLogics
             if (current.current == LogicSelector.MainLogics.SurviLogic) return;
             AIHeroClient har = null;
             AIHeroClient victim = null;
-            if (current.surviLogic.dangerValue < -15000)
+            if (current.surviLogic.dangerValue < -20000)
                 victim = EntityManager.Heroes.Enemies.Where(
                     vic => !vic.IsZombie &&
                         vic.Distance(AutoWalker.p) < vic.BoundingRadius + AutoWalker.p.AttackRange + 450 &&
@@ -55,7 +55,7 @@ namespace AutoBuddy.MainLogics
                     .FirstOrDefault();
 
             
-            if (victim == null || AutoWalker.p.GetNearestTurret().Distance(AutoWalker.p) > 1100)
+            if (victim == null || AutoWalker.p.GetNearestTurret().Distance(AutoWalker.p) > 2000)
             {
                 har =
                     EntityManager.Heroes.Enemies.Where(
@@ -102,15 +102,15 @@ namespace AutoBuddy.MainLogics
 
                 var nearestEnemyTurret = posToWalk.GetNearestTurret();
 
-                if (victim.Health < 10 + 4 * AutoWalker.p.Level && EntityManager.Heroes.Allies.Any(al => !al.IsDead() && al.Distance(vicPos) < 550))
+                if (victim.Health < 1000 + 4 * AutoWalker.p.Level && EntityManager.Heroes.Allies.Any(al => !al.IsDead() && al.Distance(vicPos) < 1050))
                     AutoWalker.UseIgnite(victim);
-                if (victim.Health + victim.HPRegenRate * 2.5f < 50 + 20 * AutoWalker.p.Level && vicPos.Distance(nearestEnemyTurret) < 1350)
+                if (victim.Health + victim.HPRegenRate * 2.5f < 500 + 20 * AutoWalker.p.Level && vicPos.Distance(nearestEnemyTurret) < 1850)
                     AutoWalker.UseIgnite(victim);
                 lastMode = "combo";
-                if (AutoWalker.p.Distance(nearestEnemyTurret) < 950 + AutoWalker.p.BoundingRadius)
+                if (AutoWalker.p.Distance(nearestEnemyTurret) < 1350 + AutoWalker.p.BoundingRadius)
                 {
-                    if (victim.Health > AutoWalker.p.GetAutoAttackDamage(victim) + 15 ||
-                        victim.Distance(AutoWalker.p) > AutoWalker.p.AttackRange + victim.BoundingRadius - 20)
+                    if (victim.Health + 200 > AutoWalker.p.GetAutoAttackDamage(victim) + 15 ||
+                        victim.Distance(AutoWalker.p) > AutoWalker.p.AttackRange + victim.BoundingRadius - 40)
                     {
                         lastMode = "enemy under turret, ignoring";
                         current.SetLogic(returnTo);
@@ -123,16 +123,16 @@ namespace AutoBuddy.MainLogics
 
 
                     if (AutoWalker.HasGhost && AutoWalker.Ghost.IsReady() &&
-                    AutoWalker.p.HealthPercent() / victim.HealthPercent() > 2 &&
-                    victim.Distance(AutoWalker.p) > AutoWalker.p.AttackRange + victim.BoundingRadius + 150 &&
-                    victim.Distance(victim.Position.GetNearestTurret()) > 1500)
+                    AutoWalker.p.HealthPercent() / victim.HealthPercent() > 1.3 &&
+                    victim.Distance(AutoWalker.p) > AutoWalker.p.AttackRange + victim.BoundingRadius + 50 &&
+                    victim.Distance(victim.Position.GetNearestTurret()) > 2500)
                     AutoWalker.Ghost.Cast();
 
-                if (ObjectManager.Player.HealthPercent() < 35)
+                if (ObjectManager.Player.HealthPercent() < 5)
                 {
-                    if (AutoWalker.p.HealthPercent < 25)
+                    if (AutoWalker.p.HealthPercent < 5)
                         AutoWalker.UseSeraphs();
-                    if (AutoWalker.p.HealthPercent < 20)
+                    if (AutoWalker.p.HealthPercent < 2)
                         AutoWalker.UseBarrier();
 
                     AutoWalker.UseHPot();
@@ -155,7 +155,7 @@ namespace AutoBuddy.MainLogics
                 lastMode = "harass";
                 var tu = harPos.GetNearestTurret();
                 AutoWalker.SetMode(Orbwalker.ActiveModes.Harass);
-                if (harPos.Distance(tu) < 1000)
+                if (harPos.Distance(tu) < 1200)
                 {
                     if (harPos.Distance(tu) < 850 + AutoWalker.p.BoundingRadius)
                         AutoWalker.SetMode(Orbwalker.ActiveModes.Flee);

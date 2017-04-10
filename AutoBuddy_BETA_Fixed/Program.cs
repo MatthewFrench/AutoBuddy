@@ -118,8 +118,8 @@ namespace AutoBuddy
                 hpvaluePot = hpValue.CurrentValue;
             };
             newpf.OnValueChange += newpf_OnValueChange;
-            var hpRecall = menu.Add("recallHp", new Slider("HP% to recall?", 25));
-            var mpRecall = menu.Add("recallMp", new Slider("Mana% to recall?", 15));
+            var hpRecall = menu.Add("recallHp", new Slider("HP% to recall?", 5));
+            var mpRecall = menu.Add("recallMp", new Slider("Mana% to recall?", 5));
             hpRecall.OnValueChange += delegate
             {
                 recallHp = hpRecall.CurrentValue;

@@ -118,8 +118,8 @@ namespace AutoBuddy.MainLogics
                         .Where(t => t.Team == ObjectManager.Player.Team && !t.IsDead())
                         .OrderBy(t => t.Distance(ObjectManager.Player))
                         .First();
-                var recallPos = nearestTurret.Position.Extend(spawn, 300).To3DWorld();
-                if (AutoWalker.p.HealthPercent() > 35)
+                var recallPos = nearestTurret.Position.Extend(spawn, 900).To3DWorld();
+                if (AutoWalker.p.HealthPercent() > 10)
                 {
                     if (g == null)
                     {

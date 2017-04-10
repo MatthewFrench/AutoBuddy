@@ -148,15 +148,15 @@ namespace AutoBuddy.MainLogics
             }
 
 
-            if (AutoWalker.p.HealthPercent < 15 && AutoWalker.HasIgnite == true && AutoWalker.Ignite.IsReady())
+            if (AutoWalker.p.HealthPercent < 5 && AutoWalker.HasIgnite == true && AutoWalker.Ignite.IsReady())
             {
                 var i = EntityManager.Heroes.Enemies.FirstOrDefault(en => en.Health < 50 + 20 * AutoWalker.p.Level && en.Distance(AutoWalker.p) < 600);
                 if (i != null) AutoWalker.UseIgnite(i);
             }
 
-            if (AutoWalker.p.HealthPercent < 10)
+            if (AutoWalker.p.HealthPercent < 5)
             {
-                if (AutoWalker.p.HealthPercent < 7)
+                if (AutoWalker.p.HealthPercent < 3)
                 {
                     AutoWalker.UseHeal();
                     AutoWalker.UseBarrier();
