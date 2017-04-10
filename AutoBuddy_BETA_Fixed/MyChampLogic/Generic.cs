@@ -47,10 +47,10 @@ namespace AutoBuddy.MyChampLogic
             "1036:Buy," + //"Long Sword"
             "2003:StartHpPot," + //"Health Potion"
 
-            ":Buy," + //Faerie Charm
-            ":Buy," + //Sapphire Crystal
-            ":Buy," + //Tear of the Goddess
-            ":Buy," + //Pickaxe
+            "1004:Buy," + //Faerie Charm
+            "1027:Buy," + //Sapphire Crystal
+            "3070:Buy," + //Tear of the Goddess
+            "1037:Buy," + //Pickaxe
             "3004:Buy," + //Manamune
 
             "2003:StopHpPot," + //"Health Potion"

@@ -509,16 +509,16 @@ namespace AutoBuddy
             }
 
             //Set lame item set build for all champs
-
+            
             myChamp.ShopSequence = 
             "3340:Buy," + //"Warding Totem (Trinket)"
             "1036:Buy," + //"Long Sword"
             "2003:StartHpPot," + //"Health Potion"
 
-            ":Buy," + //Faerie Charm
-            ":Buy," + //Sapphire Crystal
-            ":Buy," + //Tear of the Goddess
-            ":Buy," + //Pickaxe
+            "1004:Buy," + //Faerie Charm
+            "1027:Buy," + //Sapphire Crystal
+            "3070:Buy," + //Tear of the Goddess
+            "1037:Buy," + //Pickaxe
             "3004:Buy," + //Manamune
 
             "2003:StopHpPot," + //"Health Potion"
@@ -557,7 +557,7 @@ namespace AutoBuddy
             "1029:Buy," + //Cloth Armor
             "1031:Buy," + //Chain Vest
             "3075:Buy"; //Thornmail
-
+            
             var cl = new CustomLvlSeq(menu, AutoWalker.p, Path.Combine(SandboxConfig.DataDirectory, "AutoBuddy\\Skills"));
             if (!generic)
             {

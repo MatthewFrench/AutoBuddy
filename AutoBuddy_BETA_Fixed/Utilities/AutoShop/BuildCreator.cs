@@ -153,6 +153,8 @@ you can copy/share them.
 
         private void LoadBuild()
         {
+            LoadInternalBuild();
+            return;
             if (!File.Exists(buildFile))
 
             {
