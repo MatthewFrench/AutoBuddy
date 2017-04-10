@@ -13,7 +13,7 @@ namespace AutoBuddy.MyChampLogic
         public float OptimalMaxComboDistance => 2000;
         public float HarassDistance => 300;
         public LogicSelector Logic { get; set; }
-        public string ShopSequence => "1051:Buy,2003:StartHpPot,3340:Buy,1042:Buy,3086:Buy,1001:Buy,1036:Buy,3111:Buy,1028:Buy,3044:Buy,2003:StopHpPot,1027:Buy,3057:Buy,1042:Buy,1042:Buy,3101:Buy,3078:Buy,1042:Buy,1042:Buy,3046:Buy,1051:Buy,1042:Buy,3086:Buy,1042:Buy,2015:Buy,3087:Buy,1018:Buy,1037:Buy,3031:Buy,3026:Buy";
+        public string ShopSequence { get; set; }
         private Spell.Active Q, W, E;
         private Spell.Targeted R;
         private bool QIsActive => AutoWalker.p.HasBuff("GarenQ");
@@ -21,7 +21,9 @@ namespace AutoBuddy.MyChampLogic
 
         public Garen()
         {
-            Game.OnUpdate += Game_OnUpdate;
+            ShopSequence = "1051:Buy,2003:StartHpPot,3340:Buy,1042:Buy,3086:Buy,1001:Buy,1036:Buy,3111:Buy,1028:Buy,3044:Buy,2003:StopHpPot,1027:Buy,3057:Buy,1042:Buy,1042:Buy,3101:Buy,3078:Buy,1042:Buy,1042:Buy,3046:Buy,1051:Buy,1042:Buy,3086:Buy,1042:Buy,2015:Buy,3087:Buy,1018:Buy,1037:Buy,3031:Buy,3026:Buy";
+
+        Game.OnUpdate += Game_OnUpdate;
             Q = new Spell.Active(SpellSlot.Q);
             W = new Spell.Active(SpellSlot.W);
             E = new Spell.Active(SpellSlot.E, 300);

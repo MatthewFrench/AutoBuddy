@@ -36,7 +36,7 @@ namespace AutoBuddy.MyChampLogic
         public LogicSelector Logic { get; set; }
 
 
-        public string ShopSequence { get; private set; }
+        public string ShopSequence { get; set; }
 
         public static float FishBonesBonus
         {

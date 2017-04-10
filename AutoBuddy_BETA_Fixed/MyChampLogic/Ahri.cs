@@ -14,8 +14,7 @@ namespace AutoBuddy.MyChampLogic
         public float HarassDistance => AutoWalker.p.AttackRange;
         public int[] SkillSequence => new[] { 2, 1, 3, 2, 2, 4, 2, 1, 2, 1, 4, 1, 1, 3, 3, 4, 3, 3 };
         public LogicSelector Logic { get; set; }
-        public string ShopSequence => "3340:Buy,1056:Buy,2003:StartHpPot,1052:Buy,1033:Buy,1057:Buy,1052:Buy,3108:Buy,3001:Buy,1001:Buy,3020:Buy,1052:Buy,2003:StopHpPot,1052:Buy,3108:Buy,1052:Buy,3802:Buy,3165:Buy,1026:Buy,1052:Buy,3135:Buy,1058:Buy,1056:Sell,1026:Buy,3089:Buy,1052:Buy,3113:Buy,3285:Buy";
-
+        public string ShopSequence { get; set; }
         private static SpellData GetSpellData(SpellSlot slot)
         {
             return AutoWalker.p.Spellbook.GetSpell(slot).SData;
@@ -40,7 +39,9 @@ namespace AutoBuddy.MyChampLogic
 
         public Ahri()
         {
-            Gapcloser.OnGapcloser += (sender, args) =>
+             ShopSequence = "3340:Buy,1056:Buy,2003:StartHpPot,1052:Buy,1033:Buy,1057:Buy,1052:Buy,3108:Buy,3001:Buy,1001:Buy,3020:Buy,1052:Buy,2003:StopHpPot,1052:Buy,3108:Buy,1052:Buy,3802:Buy,3165:Buy,1026:Buy,1052:Buy,3135:Buy,1058:Buy,1056:Sell,1026:Buy,3089:Buy,1052:Buy,3113:Buy,3285:Buy";
+
+        Gapcloser.OnGapcloser += (sender, args) =>
             {
                 if (_R.State == SpellState.Ready && args.Type != Gapcloser.GapcloserType.Targeted)
                 {

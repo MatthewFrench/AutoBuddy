@@ -266,7 +266,7 @@ EntityManager.Heroes.Enemies.FirstOrDefault(
         public LogicSelector Logic { get; set; }
 
 
-        public string ShopSequence { get; private set; }
+        public string ShopSequence { get; set; }
 
         public void Harass(AIHeroClient target)
         {

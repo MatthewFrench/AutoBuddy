@@ -14,7 +14,7 @@ namespace AutoBuddy.MyChampLogic
         public float HarassDistance => AutoWalker.p.AttackRange;
         public int[] SkillSequence => new[] {2, 1, 3, 2, 2, 4, 2, 1, 2, 1, 4, 1, 1, 3, 3, 4, 3, 3};
         public LogicSelector Logic { get; set; }
-        public string ShopSequence => "3340:Buy,2003:StartHpPot,1056:Buy,3010:Buy,1026:Buy,3027:Buy,1058:Buy,3020:Buy,3191:Buy,3157:Buy,1058:Buy,2003:StopHpPot,1011:Buy,3116:Buy,1056:Sell,1058:Buy,1026:Buy,3089:Buy,3136:Buy,3151:Buy";
+        public string ShopSequence { get; set; }
 
         private static SpellData GetSData(SpellSlot slot)
         {
@@ -37,6 +37,8 @@ namespace AutoBuddy.MyChampLogic
 
         public Anivia()
         {
+            ShopSequence = "3340:Buy,2003:StartHpPot,1056:Buy,3010:Buy,1026:Buy,3027:Buy,1058:Buy,3020:Buy,3191:Buy,3157:Buy,1058:Buy,2003:StopHpPot,1011:Buy,3116:Buy,1056:Sell,1058:Buy,1026:Buy,3089:Buy,3136:Buy,3151:Buy";
+
             GameObject.OnCreate += GameObject_OnCreate;
             GameObject.OnDelete += GameObject_OnDelete;
             Game.OnTick += Game_OnTick;

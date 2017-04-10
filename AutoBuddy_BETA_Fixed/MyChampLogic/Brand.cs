@@ -25,7 +25,12 @@ namespace AutoBuddy.MyChampLogic
         public LogicSelector Logic { get; set; }
 
 
-        public string ShopSequence { get; private set; }
+        public string ShopSequence { get; set; }
+
+        public void SetShopSequence(string sequence)
+        {
+            ShopSequence = sequence;
+        }
 
         public void Harass(AIHeroClient target)
         {

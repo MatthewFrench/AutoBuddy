@@ -12,8 +12,7 @@ namespace AutoBuddy.MyChampLogic
         public float OptimalMaxComboDistance => Player.Instance.AttackRange;
         public float HarassDistance => Player.Instance.AttackRange;
         public LogicSelector Logic { get; set; }
-        public string ShopSequence => "1056:Buy,2003:StartHpPot,3340:Buy,1036:Buy,1053:Buy,1036:Buy,3144:Buy,1052:Buy,1052:Buy,3145:Buy,3146:Buy,1001:Buy,1033:Buy,3111:Buy,1052:Buy,3108:Buy,1052:Buy,3191:Buy,3157:Buy,2003:StopHpPot,1028:Buy,3067:Buy,1028:Buy,3211:Buy,3065:Buy,1056:Sell,1052:Buy,3113:Buy,1026:Buy,3100:Buy,1033:Buy,1057:Buy,3026:Buy";
-
+        public string ShopSequence { get; set; }
         private static SpellData GetSData(SpellSlot slot) => Player.GetSpell(slot).SData;
         public Spell.SimpleSkillshot _Q = new Spell.SimpleSkillshot(SpellSlot.Q, (uint)GetSData(SpellSlot.Q).CastRangeDisplayOverride, DamageType.Magical);
         public Spell.Active _W = new Spell.Active(SpellSlot.W, (uint)GetSData(SpellSlot.W).CastRangeDisplayOverride);
@@ -28,6 +27,8 @@ namespace AutoBuddy.MyChampLogic
 
         public Akali()
         {
+            ShopSequence = "1056:Buy,2003:StartHpPot,3340:Buy,1036:Buy,1053:Buy,1036:Buy,3144:Buy,1052:Buy,1052:Buy,3145:Buy,3146:Buy,1001:Buy,1033:Buy,3111:Buy,1052:Buy,3108:Buy,1052:Buy,3191:Buy,3157:Buy,2003:StopHpPot,1028:Buy,3067:Buy,1028:Buy,3211:Buy,3065:Buy,1056:Sell,1052:Buy,3113:Buy,1026:Buy,3100:Buy,1033:Buy,1057:Buy,3026:Buy";
+
             Game.OnUpdate += Game_OnUpdate;
         }
 

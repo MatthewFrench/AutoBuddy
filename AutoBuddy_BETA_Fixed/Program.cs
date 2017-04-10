@@ -507,6 +507,57 @@ namespace AutoBuddy
                     myChamp = new Generic();
                     break;
             }
+
+            //Set lame item set build for all champs
+
+            myChamp.ShopSequence = 
+            "3340:Buy," + //"Warding Totem (Trinket)"
+            "1036:Buy," + //"Long Sword"
+            "2003:StartHpPot," + //"Health Potion"
+
+            ":Buy," + //Faerie Charm
+            ":Buy," + //Sapphire Crystal
+            ":Buy," + //Tear of the Goddess
+            ":Buy," + //Pickaxe
+            "3004:Buy," + //Manamune
+
+            "2003:StopHpPot," + //"Health Potion"
+
+            "1082:Buy," + //The dark seal
+            "3041:Buy," + // Mejai's Soulstealer
+
+
+            "1052:Buy," + //Amplifying Tome
+            "3108:Buy," + //Fiendish Codex
+            "1004:Buy," + //Faerie Charm
+            "1004:Buy," + //Faerie Charm
+            "1033:Buy," + //Null-Magic Mantle
+            "3028:Buy," + //Chalice of Harmony
+            "3174:Buy," + // Athene's Unholy Grail
+
+
+            "1036:Buy," + //Long Sword
+            "1053:Buy," + //Vamperic Sceptor
+            "1036:Buy," + //Long Sword
+            "3144:Buy," + //Bilgewater Cutlass
+            "1052:Buy," + //Amplifying Tome
+            "1052:Buy," + //Amplifying Tome
+            "3145:Buy," + //Hextech Revolver
+            "3146:Buy," + // Hextech Gunblade
+
+
+            "1033:Buy," + //Null Magic Mantle
+            "1029:Buy," + //Cloth Armor
+            "3105:Buy," + //Aegis of the Legion
+            "1027:Buy," + //Sapphire Crystal
+            "3024:Buy," + //Glacial Shroud
+            "3060:Buy," + // Banner of Command
+
+
+            "1029:Buy," + //Cloth Armor
+            "1031:Buy," + //Chain Vest
+            "3075:Buy"; //Thornmail
+
             var cl = new CustomLvlSeq(menu, AutoWalker.p, Path.Combine(SandboxConfig.DataDirectory, "AutoBuddy\\Skills"));
             if (!generic)
             {
